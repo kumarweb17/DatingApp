@@ -9,7 +9,7 @@ namespace DatingApp.API.Dtos
        public string Username {get; set;} 
 
        [Required]
-       [StringLength(8, MinimumLength=6,ErrorMessage="Password Should Between 2 and 8 chars")]
+       [StringLength(8, MinimumLength=6,ErrorMessage="Password Should Between 4 and 8 chars")]
      
         //[RegularExpression(@"^[a-zA-Z0-9]+$", ErrorMessage = "Special character should not be entered")]
         public string Password {get; set;} 
