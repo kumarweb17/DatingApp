@@ -7,6 +7,9 @@ import { FormsModule } from '@angular/forms';
 import { BsDropdownModule, TabsModule } from 'ngx-bootstrap';
 import { JwtModule } from '@auth0/angular-jwt';
 import { NgxGalleryModule } from 'ngx-gallery';
+import {  FileUploadModule } from 'ng2-file-upload';
+
+
 
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
@@ -24,6 +27,11 @@ import { MemberCardComponent } from './members/member-card/member-card.component
 import { MemberDetialComponent } from './members/member-detial/member-detial.component';
 import { MemberDetailResolver } from './_resolvers/memberdetail.resolver';
 import { MemberListResolver } from './_resolvers/memberlist.resolver';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import { MemberEditResolver } from './_resolvers/memberedit.resolver';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
+import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
+
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -38,13 +46,16 @@ export function tokenGetter() {
       MemberListComponent,
       MessagesComponent,
       MemberCardComponent,
-      MemberDetialComponent
+      MemberDetialComponent,
+      MemberEditComponent,
+      PhotoEditorComponent
    ],
    imports: [
       BrowserModule,
       HttpClientModule,
       FormsModule,
       NgxGalleryModule,
+      FileUploadModule,
       BsDropdownModule.forRoot(),
       TabsModule.forRoot(),
       RouterModule.forRoot(appRoutes),
@@ -63,7 +74,9 @@ export function tokenGetter() {
       AuthGuard,
       UserService,
       MemberDetailResolver,
-      MemberListResolver
+      MemberListResolver,
+      MemberEditResolver,
+      PreventUnsavedChanges
    ],
    bootstrap: [
       AppComponent

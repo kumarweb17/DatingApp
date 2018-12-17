@@ -40,7 +40,6 @@ export class MemberDetialComponent implements OnInit {
           preview: false
       },
      
-     
   ];
  
   this.galleryImages = this.getImages();
